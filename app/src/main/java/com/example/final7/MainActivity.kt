@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavHostController
 import com.example.final7.ui.theme.Final7Theme
 
 class MainActivity : ComponentActivity() {
@@ -48,7 +50,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun FirstScreen(){
+fun FirstScreen() {
     val context = LocalContext.current
     Column(modifier = Modifier
         .fillMaxSize()
@@ -57,6 +59,15 @@ fun FirstScreen(){
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
+        Image(
+            painter = painterResource(id = R.drawable.li),
+            contentDescription = "圖片",
+            alpha = 0.7f,
+            modifier = Modifier
+                //.clip(CircleShape)
+                //.background(Color.Black)
+        )
+        Text(text = "")
         Button(onClick = {
             var it = Intent(context, MainActivity2::class.java)
             context.startActivity(it)
