@@ -1,10 +1,8 @@
 package com.example.final7
-//小遊戲第一題
+//第五題
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -24,17 +22,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import com.example.final7.ui.theme.Final7Theme
 
-class MainActivity4 : ComponentActivity() {
+class MainActivity9 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Final7Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting4(
+                    Greeting9(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -45,7 +42,7 @@ class MainActivity4 : ComponentActivity() {
 }
 
 @Composable
-fun Greeting4(name: String, modifier: Modifier = Modifier) {
+fun Greeting9(name: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current //取得App的運行環境
     val activity = (context as Activity) //取得App運行的活動
     Column(modifier = Modifier
@@ -58,7 +55,7 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
 
         Row {
             Button(onClick = {
-                var it = Intent(context, MainActivity4::class.java)
+                var it = Intent(context, MainActivity9::class.java)
                 context.startActivity(it)
             }
             )
@@ -70,7 +67,7 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
                 )
             }
             Button(onClick = {
-                var it = Intent(context, MainActivity4::class.java)
+                var it = Intent(context, MainActivity9::class.java)
                 context.startActivity(it)
             }
             )
@@ -82,7 +79,7 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
                 )
             }
             Button(onClick = {
-                var it = Intent(context, MainActivity6::class.java)
+                var it = Intent(context, MainActivity10::class.java)
                 context.startActivity(it)
             }
             )
@@ -95,11 +92,10 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview4() {
+fun GreetingPreview9() {
     Final7Theme {
-        Greeting4("Android")
+        Greeting9("Android")
     }
 }

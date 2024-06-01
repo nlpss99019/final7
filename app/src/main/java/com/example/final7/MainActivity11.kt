@@ -1,5 +1,5 @@
 package com.example.final7
-//記事簿
+//第七題
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,16 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.final7.ui.theme.Final7Theme
-import java.util.Calendar
 
-class MainActivity3 : ComponentActivity() {
+class MainActivity11 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Final7Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting3(
+                    Greeting11(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -32,7 +31,7 @@ class MainActivity3 : ComponentActivity() {
 }
 
 @Composable
-fun Greeting3(name: String, modifier: Modifier = Modifier) {
+fun Greeting11(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier
@@ -41,10 +40,8 @@ fun Greeting3(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview3() {
+fun GreetingPreview11() {
     Final7Theme {
-        Greeting3("Android")
+        Greeting11("Android")
     }
 }
-
-
