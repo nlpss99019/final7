@@ -8,6 +8,7 @@ import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -51,46 +53,91 @@ fun Greeting4(name: String, modifier: Modifier = Modifier) {
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.White),
-        verticalArrangement = Arrangement.Center,
+        //verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
+        Text(
+            text = "今天你在公園散步，突然覺得口渴，要去販賣機買一瓶紅茶喝。請問下列何者是我們需要的飲料",
+            fontSize = 25.sp,
+            color = Color.Black,
+            modifier = modifier
+        )
+        Text(text = "")
+        Image(
+            painter = painterResource(id = R.drawable.ans1),
+            contentDescription = "圖片",
+            alpha = 0.7f,
+            modifier = Modifier
+        )
+        Text(text = "")
+        Column{
+            Row{
+                Image(
+                    painter = painterResource(id = R.drawable.q3),
+                    contentDescription = "圖片",
+                    alpha = 0.7f,
+                    modifier = Modifier
+                )
+                Text(text = "")
+                Text(text = "")
+                Button(onClick = {
+                    var it = Intent(context, MainActivity4::class.java)
+                    context.startActivity(it)
+                }
+                )
+                {
+                    Text(
+                        text = "答案1",
+                        fontSize = 20.sp,
+                        color = Color.White,
+                    )
+                }
+            }
+            Text(text = "")
+            Row {
+                Image(
+                    painter = painterResource(id = R.drawable.q1),
+                    contentDescription = "圖片",
+                    alpha = 0.7f,
+                    modifier = Modifier
+                )
+                Text(text = "")
+                Text(text = "")
+                Button(onClick = {
+                    var it = Intent(context, MainActivity4::class.java)
+                    context.startActivity(it)
+                }
+                )
+                {
+                    Text(
+                        text = "答案2",
+                        fontSize = 20.sp,
+                        color = Color.White,
+                    )
+                }
+            }
+            Text(text = "")
+            Row {
+                Image(
+                    painter = painterResource(id = R.drawable.q2),
+                    contentDescription = "圖片",
+                    alpha = 0.7f,
+                    modifier = Modifier
+                )
+                Text(text = "")
+                Button(onClick = {
+                    var it = Intent(context, MainActivity6::class.java)
+                    context.startActivity(it)
+                }
+                )
+                {
+                    Text(text = "答案3" ,
+                        fontSize = 20.sp,
+                        color = Color.White,)
+                }
+            }
 
-        Row {
-            Button(onClick = {
-                var it = Intent(context, MainActivity4::class.java)
-                context.startActivity(it)
-            }
-            )
-            {
-                Text(
-                    text = "答案1",
-                    fontSize = 20.sp,
-                    color = Color.White,
-                )
-            }
-            Button(onClick = {
-                var it = Intent(context, MainActivity4::class.java)
-                context.startActivity(it)
-            }
-            )
-            {
-                Text(
-                    text = "答案2",
-                    fontSize = 20.sp,
-                    color = Color.White,
-                )
-            }
-            Button(onClick = {
-                var it = Intent(context, MainActivity6::class.java)
-                context.startActivity(it)
-            }
-            )
-            {
-                Text(text = "答案3" ,
-                    fontSize = 20.sp,
-                    color = Color.White,)
-            }
         }
     }
 }
