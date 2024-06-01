@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -72,7 +73,8 @@ fun FirstScreen() {
         Button(onClick = {
             var it = Intent(context, MainActivity2::class.java)
             context.startActivity(it)
-        }
+        },
+            colors = buttonColors(Color.Red)
         )
         {
             Text(text = "進入")

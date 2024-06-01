@@ -53,6 +53,7 @@ fun Greeting10(name: String, modifier: Modifier = Modifier) {
     )
     {
 
+
         Row {
             Button(onClick = {
                 var it = Intent(context, MainActivity10::class.java)
