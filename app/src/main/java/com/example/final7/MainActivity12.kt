@@ -1,23 +1,20 @@
 package com.example.final7
-//小遊戲第二題
+//第八題
 import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults.buttonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,17 +25,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import com.example.final7.ui.theme.Final7Theme
 
-class MainActivity6 : ComponentActivity() {
+class MainActivity12 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Final7Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting6(
+                    Greeting12(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -49,7 +45,7 @@ class MainActivity6 : ComponentActivity() {
 }
 
 @Composable
-fun Greeting6(name: String, modifier: Modifier = Modifier) {
+fun Greeting12(name: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current //取得App的運行環境
     val activity = (context as Activity) //取得App運行的活動
     var mper = MediaPlayer()
@@ -62,7 +58,7 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
     )
     {
         Text(
-            text = "我出門了，可是下雨了，我應該從包包中拿出甚麼?",
+            text = "今天，小莉想要搭著熱氣球去環遊世界，請問下面哪一個是熱氣球？",
             fontSize = 25.sp,
             color = Color.Black,
             modifier = modifier
@@ -73,19 +69,20 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
             alpha = 0.7f,
             modifier = Modifier
         )
+
         Row {
             Image(
-                painter = painterResource(id = R.drawable.ans2),
+                painter = painterResource(id = R.drawable.ans8),
                 contentDescription = "圖片",
                 alpha = 0.7f,
                 modifier = Modifier
             )
             Button(onClick = {
                 mper.reset()
-                mper = MediaPlayer.create(context, R.raw.q2)
+                mper = MediaPlayer.create(context, R.raw.q8)
                 mper.start()
             },
-                colors = buttonColors(Color.Black)
+                colors = ButtonDefaults.buttonColors(Color.Black)
             )
             {
                 Image(
@@ -114,21 +111,22 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
             alpha = 0.7f,
             modifier = Modifier
         )
+
         Row {
             Image(
-                painter = painterResource(id = R.drawable.q5),
+                painter = painterResource(id = R.drawable.q24),
                 contentDescription = "圖片",
                 alpha = 0.7f,
                 modifier = Modifier
             )
             Image(
-                painter = painterResource(id = R.drawable.q6),
+                painter = painterResource(id = R.drawable.q23),
                 contentDescription = "圖片",
                 alpha = 0.7f,
                 modifier = Modifier
             )
             Image(
-                painter = painterResource(id = R.drawable.q7),
+                painter = painterResource(id = R.drawable.q25),
                 contentDescription = "圖片",
                 alpha = 0.7f,
                 modifier = Modifier
@@ -136,13 +134,11 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
         }
         Row {
             Button(onClick = {
-                var it = Intent(context, MainActivity7::class.java)
-                context.startActivity(it)
                 mper.reset()
-                mper = MediaPlayer.create(context, R.raw.right)
+                mper = MediaPlayer.create(context, R.raw.wrong)
                 mper.start()
             },
-                colors = buttonColors(Color.Black)
+                colors = ButtonDefaults.buttonColors(Color.Black)
             )
             {
                 Text(
@@ -151,13 +147,15 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
                     color = Color.White,
                 )
             }
-            Text(text = "          ")
+            Text(text = "      ")
             Button(onClick = {
+                var it = Intent(context, MainActivity13::class.java)
+                context.startActivity(it)
                 mper.reset()
-                mper = MediaPlayer.create(context, R.raw.wrong)
+                mper = MediaPlayer.create(context, R.raw.right)
                 mper.start()
             },
-                colors = buttonColors(Color.Black)
+                colors = ButtonDefaults.buttonColors(Color.Black)
             )
             {
                 Text(
@@ -166,13 +164,13 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
                     color = Color.White,
                 )
             }
-            Text(text = "          ")
+            Text(text = "      ")
             Button(onClick = {
                 mper.reset()
                 mper = MediaPlayer.create(context, R.raw.wrong)
                 mper.start()
             },
-                colors = buttonColors(Color.Black)
+                colors = ButtonDefaults.buttonColors(Color.Black)
             )
             {
                 Text(
@@ -185,11 +183,10 @@ fun Greeting6(name: String, modifier: Modifier = Modifier) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview6() {
+fun GreetingPreview12() {
     Final7Theme {
-        Greeting4("Android")
+        Greeting12("Android")
     }
 }

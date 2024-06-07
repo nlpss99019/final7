@@ -1,6 +1,7 @@
 package com.example.final7
 //主頁
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -54,6 +55,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun FirstScreen() {
     val context = LocalContext.current
+    var mper = MediaPlayer()
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.White),
@@ -73,8 +75,11 @@ fun FirstScreen() {
         Button(onClick = {
             var it = Intent(context, MainActivity2::class.java)
             context.startActivity(it)
+            mper.reset()
+            mper = MediaPlayer.create(context, R.raw.addressretrun)
+            mper.start()
         },
-            colors = buttonColors(Color.Red)
+            colors = buttonColors(Color.Black)
         )
         {
             Text(text = "進入")

@@ -3,6 +3,7 @@ package com.example.final7
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -66,6 +69,8 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 fun SecondScreen() {
     val context = LocalContext.current //取得App的運行環境
     val activity = (context as Activity) //取得App運行的活動
+    var mper = MediaPlayer()
+
     Column (modifier = Modifier
 
         .fillMaxSize()
@@ -104,7 +109,7 @@ fun SecondScreen() {
                 text = "             ",
             )
             Image(
-                painter = painterResource(id = R.drawable.f),
+                painter = painterResource(id = R.drawable.controller),
                 contentDescription = "圖片",
                 alpha = 0.7f,
                 modifier = Modifier
@@ -115,7 +120,11 @@ fun SecondScreen() {
             Button(onClick = {
                 var it = Intent(context, MainActivity3::class.java)
                 context.startActivity(it)
-            }
+                mper.reset()
+                mper = MediaPlayer.create(context, R.raw.note)
+                mper.start()
+            },
+                colors = buttonColors(Color.Black)
             )
             {
 
@@ -131,10 +140,14 @@ fun SecondScreen() {
             Button(onClick = {
                 var it = Intent(context, MainActivity4::class.java)
                 context.startActivity(it)
-            }
+                mper.reset()
+                mper = MediaPlayer.create(context, R.raw.game)
+                mper.start()
+            },
+                colors = buttonColors(Color.Black)
             )
             {
-                Text(text = "game" ,
+                Text(text = "小遊戲" ,
                         fontSize = 20.sp,
                     color = Color.White,)
             }
@@ -174,7 +187,11 @@ fun SecondScreen() {
                 var it = Intent(context, MainActivity5::class.java)
                 it.putExtra("website", "https://www.maria.org.tw/")
                 context.startActivity(it)
-            })
+                mper.reset()
+                mper = MediaPlayer.create(context, R.raw.address)
+                mper.start()
+            },
+                colors = buttonColors(Color.Black))
             {
                 Text(text = "查地址",
                     fontSize = 20.sp,
@@ -187,7 +204,11 @@ fun SecondScreen() {
             Button(
                 onClick = {
                     activity.finish()
-                })
+                    mper.reset()
+                    mper = MediaPlayer.create(context, R.raw.retrun)
+                    mper.start()
+                },
+                colors = buttonColors(Color.Black))
             {
                 Text(text = "返回",
                     fontSize = 20.sp,
